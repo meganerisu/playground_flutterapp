@@ -5,7 +5,6 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   final title = 'Flutter Sample';
-  final message = 'Sample Message';
 
   @override
   Widget build(BuildContext context) {
@@ -14,18 +13,16 @@ class MyApp extends StatelessWidget {
       
       home: new MyHomePage(
         title: this.title,
-        message: this.message
       ),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
+
+  MyHomePage({this.title}) : super();
+
   final String title;
-  final String message;
-
-  MyHomePage({this.title, this.message}) : super();
-
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
   // how it looks.
@@ -40,6 +37,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  String _message;
   /*int _counter = 0;
 
   void _incrementCounter() {
@@ -52,6 +50,18 @@ class _MyHomePageState extends State<MyHomePage> {
       _counter++;
     });
   }*/
+
+  @override
+  void initState() {
+    super.initState();
+    _message = 'Hello';
+  }
+  
+  void _setMessage() {
+    setState(() {
+      _message = 'You tapped!';
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
 
       body: Text(
-        widget.message,
+        _message,
         style: TextStyle(fontSize:32.0),
       ),
 
@@ -103,10 +113,10 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),*/
-      /*floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _setMessage,
+        tooltip: 'set message.',
+        child: Icon(Icons.star),
       ), // This trailing comma makes auto-formatting nicer for build methods.*/
     );
   }
