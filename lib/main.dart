@@ -4,26 +4,27 @@ void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
+  final title = 'Flutter Sample';
+  final message = 'Sample Message';
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("Hello Flutter"),
-        ),
-        body: Text(
-          "Hello Flutter World!!",
-          style: TextStyle(fontSize: 32.0),
-        ),
+      home: new MyHomePage(
+        title: this.title,
+        message: this.message
       ),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  final String title;
+  final String message;
+
+  MyHomePage({this.title, this.message}) : super();
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -34,14 +35,12 @@ class MyHomePage extends StatefulWidget {
   // used by the build method of the State. Fields in a Widget subclass are
   // always marked "final".
 
-  final String title;
-
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  /*int _counter = 0;
 
   void _incrementCounter() {
     setState(() {
@@ -52,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
       // called again, and so nothing would appear to happen.
       _counter++;
     });
-  }
+  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +67,13 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Center(
+
+      body: Text(
+        widget.message,
+        style: TextStyle(fontSize:32.0),
+      ),
+
+      /*body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
         child: Column(
@@ -97,12 +102,12 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
+      ),*/
+      /*floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ), // This trailing comma makes auto-formatting nicer for build methods.*/
     );
   }
 }
