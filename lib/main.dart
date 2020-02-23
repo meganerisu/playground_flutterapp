@@ -15,24 +15,94 @@ class MyApp extends StatelessWidget {
         accentColor: const Color(0xFF2196f3),
         canvasColor: const Color(0xFFfafafa),
       ),
-      home: new MyHomePage(),
+      home: new FirstScreen(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key}) : super(key: key);
+class FirstScreen extends StatelessWidget {
   @override
-  _MyHomePageState createState() => new _MyHomePageState();
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Home"),
+      ),
+      body: Center(
+        child: Container(
+          child: Text(
+            "Home Screen",
+            style: TextStyle(
+              fontSize: 32,
+              fontWeight: FontWeight.w400,
+              fontFamily: "Roboto"
+            ),
+          ),
+        ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: 1,
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            title: Text("back"),
+            icon: Icon(Icons.home),
+          ),
+          BottomNavigationBarItem(
+            title: Text("next"),
+            icon: Icon(Icons.navigate_next),
+          ),
+        ],
+        onTap: (int value) {
+          if (value == 1) {
+            Navigator.push(
+              context, 
+              MaterialPageRoute(builder: (context) => SecondScreen()),
+            );
+          }
+        },
+      ),
+    );
+  }
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-    @override
-    Widget build(BuildContext context) {
-      return new Scaffold(
-        appBar: new AppBar(
-          title: new Text('App Name'),
+class SecondScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Next"),
+      ),
+      body: Center(
+        child: Container(
+          child: Text(
+            "Second Screen",
+            style: TextStyle(
+              fontSize: 32,
+              fontWeight: FontWeight.w400,
+              fontFamily: "Roboto"
+            ),
           ),
-      );
-    }
+        ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: 0,
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            title: Text("prev"),
+            icon: Icon(Icons.navigate_before),
+          ),
+          BottomNavigationBarItem(
+            title: Text("?"),
+            icon: Icon(Icons.star),
+          ),
+        ],
+        onTap: (int value) {
+          if (value == 0) {
+            Navigator.pop(
+              context, 
+            );
+          }
+        },
+      ),
+    );
+  }
 }
