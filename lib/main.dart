@@ -28,38 +28,78 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  var _stackData = <Widget>[
+  var _gridData = <Widget>[
     Container(
       color: Colors.red,
-      width: 200.0,
-      height: 200.0,
       child: Text(
         "one",
-        style: TextStyle(fontSize: 32.0,
-        fontWeight: FontWeight.w400,
-        fontFamily: "Roboto"),
+        style: TextStyle(
+          fontSize: 32.0,
+          fontWeight: FontWeight.w400,
+          fontFamily: "Roboto"),
+        ), 
       ),
-    ),
     Container(
       color: Colors.green,
-      width: 200.0,
-      height: 200.0,
       child: Text(
         "two",
         style: TextStyle(fontSize: 32.0,
-        fontWeight: FontWeight.w400,
-        fontFamily: "Roboto"),
+          fontWeight: FontWeight.w400,
+          fontFamily: "Roboto"),
       ),
     ),
     Container(
       color: Colors.blue,
-      width: 200.0,
-      height: 200.0,
       child: Text(
         "three",
         style: TextStyle(fontSize: 32.0,
-        fontWeight: FontWeight.w400,
-        fontFamily: "Roboto"),
+          fontWeight: FontWeight.w400,
+          fontFamily: "Roboto"),
+      ),
+    ),
+    Container(
+      color: Colors.yellow,
+      child: Text(
+        "four",
+        style: TextStyle(fontSize: 32.0,
+          fontWeight: FontWeight.w400,
+          fontFamily: "Roboto"),
+      ),
+    ),
+    Container(
+      color: Colors.orange,
+      child: Text(
+        "five",
+        style: TextStyle(fontSize: 32.0,
+          fontWeight: FontWeight.w400,
+          fontFamily: "Roboto"),
+      ),
+    ),
+    Container(
+      color: Colors.purple,
+      child: Text(
+        "six",
+        style: TextStyle(fontSize: 32.0,
+          fontWeight: FontWeight.w400,
+          fontFamily: "Roboto"),
+      ),
+    ),
+    Container(
+      color: Colors.blue,
+      child: Text(
+        "three",
+        style: TextStyle(fontSize: 32.0,
+          fontWeight: FontWeight.w400,
+          fontFamily: "Roboto"),
+      ),
+    ),
+    Container(
+      color: Colors.blue,
+      child: Text(
+        "three",
+        style: TextStyle(fontSize: 32.0,
+          fontWeight: FontWeight.w400,
+          fontFamily: "Roboto"),
       ),
     ),
   ];
@@ -71,18 +111,14 @@ class _MyHomePageState extends State<MyHomePage> {
           title: new Text('App Name'),
           ),
         body:
-          new Stack(
-            children: _stackData,
+          new GridView.count(
+            crossAxisCount: 2,
+            mainAxisSpacing: 4.0,
+            crossAxisSpacing: 4.0,
+            padding: const EdgeInsets.all(0.0),
+            children: _gridData,
           ),
-        floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.android),
-          onPressed: fabPressed),
+    
       );
-    }
-
-    void fabPressed() {
-      setState(() {
-        _stackData.insert(0, _stackData.removeLast());
-      });
     }
 }
