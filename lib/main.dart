@@ -34,16 +34,19 @@ class _MyHomePageState extends State<MyHomePage> {
           title: new Text('App Name'),
           ),
         body:
-          new Center(
+          new Container(
             child:
               new Text(
-              "Hello Flutter!",
+              "Hello Fluter!",
                 style: new TextStyle(fontSize:32.0,
                 color: const Color(0xFF000000),
                 fontWeight: FontWeight.w700,
                 fontFamily: "Roboto"),
               ),
     
+            padding: const EdgeInsets.all(10.0),
+            //alignment: Alignment.bottomCenter,
+            alignment: const Alignment(0.0, -0.5),
           ),
     
       );
