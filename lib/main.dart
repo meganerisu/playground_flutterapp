@@ -111,8 +111,8 @@ class _MyHomePageState extends State<MyHomePage> {
           title: new Text('App Name'),
           ),
         body:
-          new GridView.count(
-            crossAxisCount: 2,
+          new GridView.extent(
+            maxCrossAxisExtent: 150,
             mainAxisSpacing: 4.0,
             crossAxisSpacing: 4.0,
             padding: const EdgeInsets.all(0.0),
