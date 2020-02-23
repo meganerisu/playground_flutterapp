@@ -34,19 +34,36 @@ class _MyHomePageState extends State<MyHomePage> {
           title: new Text('App Name'),
           ),
         body:
-          new Container(
-            child:
+          new Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
               new Text(
-              "Hello Fluter!",
+              "one",
                 style: new TextStyle(fontSize:32.0,
                 color: const Color(0xFF000000),
-                fontWeight: FontWeight.w700,
+                fontWeight: FontWeight.w500,
                 fontFamily: "Roboto"),
               ),
     
-            padding: const EdgeInsets.all(10.0),
-            //alignment: Alignment.bottomCenter,
-            alignment: const Alignment(0.0, -0.5),
+              new Text(
+              "two",
+                style: new TextStyle(fontSize:32.0,
+                color: const Color(0xFF000000),
+                fontWeight: FontWeight.w500,
+                fontFamily: "Roboto"),
+              ),
+    
+              new Text(
+              "three",
+                style: new TextStyle(fontSize:32.0,
+                color: const Color(0xFF000000),
+                fontWeight: FontWeight.w500,
+                fontFamily: "Roboto"),
+              )
+            ]
+    
           ),
     
       );
