@@ -27,12 +27,76 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  var _message;
+  static var _rsp = <String>[
+    "rock", "sissors", "paper"
+  ];
+
+  @override
+  void initState() {
+    _message = "ok";
+    super.initState();
+  }
+
     @override
     Widget build(BuildContext context) {
       return new Scaffold(
         appBar: new AppBar(
           title: new Text('App Name'),
           ),
+        body:
+          Center(
+            child: 
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  Padding( 
+                    padding: EdgeInsets.all(20.0),
+                    child: Text(
+                      _message,
+                      style: TextStyle(
+                        fontSize: 32,
+                        fontWeight: FontWeight.w400,
+                        fontFamily: "Roboto"),
+                      ),
+                    ),
+                  
+                  RaisedButton(
+                    onPressed: buttonPressed,
+                    color: Colors.black12,
+                    child: Padding(
+                      padding: EdgeInsets.all(10),
+                        child: Text(
+                          "Push Here!",
+                          style: TextStyle(
+                            fontSize: 32,
+                            fontWeight: FontWeight.w400,
+                            fontFamily: "Roboto"
+                          ),
+                        ),
+
+                    )
+                  )
+
+                  /*IconButton(
+                    icon: const Icon(Icons.star),
+                    iconSize: 50,
+                    color: Colors.red,
+                    onPressed: buttonPressed,
+                  )*/
+                ]
+              ),
+          ),
+    
       );
     }
+    void buttonPressed(){
+      setState(() {
+        _message = (_rsp..shuffle()).first;
+      });
+    }
+    
 }
