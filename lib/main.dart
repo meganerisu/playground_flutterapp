@@ -27,83 +27,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
-  var _gridData = <Widget>[
-    Container(
-      color: Colors.red,
-      child: Text(
-        "one",
-        style: TextStyle(
-          fontSize: 32.0,
-          fontWeight: FontWeight.w400,
-          fontFamily: "Roboto"),
-        ), 
-      ),
-    Container(
-      color: Colors.green,
-      child: Text(
-        "two",
-        style: TextStyle(fontSize: 32.0,
-          fontWeight: FontWeight.w400,
-          fontFamily: "Roboto"),
-      ),
-    ),
-    Container(
-      color: Colors.blue,
-      child: Text(
-        "three",
-        style: TextStyle(fontSize: 32.0,
-          fontWeight: FontWeight.w400,
-          fontFamily: "Roboto"),
-      ),
-    ),
-    Container(
-      color: Colors.yellow,
-      child: Text(
-        "four",
-        style: TextStyle(fontSize: 32.0,
-          fontWeight: FontWeight.w400,
-          fontFamily: "Roboto"),
-      ),
-    ),
-    Container(
-      color: Colors.orange,
-      child: Text(
-        "five",
-        style: TextStyle(fontSize: 32.0,
-          fontWeight: FontWeight.w400,
-          fontFamily: "Roboto"),
-      ),
-    ),
-    Container(
-      color: Colors.purple,
-      child: Text(
-        "six",
-        style: TextStyle(fontSize: 32.0,
-          fontWeight: FontWeight.w400,
-          fontFamily: "Roboto"),
-      ),
-    ),
-    Container(
-      color: Colors.blue,
-      child: Text(
-        "three",
-        style: TextStyle(fontSize: 32.0,
-          fontWeight: FontWeight.w400,
-          fontFamily: "Roboto"),
-      ),
-    ),
-    Container(
-      color: Colors.blue,
-      child: Text(
-        "three",
-        style: TextStyle(fontSize: 32.0,
-          fontWeight: FontWeight.w400,
-          fontFamily: "Roboto"),
-      ),
-    ),
-  ];
-
     @override
     Widget build(BuildContext context) {
       return new Scaffold(
@@ -111,12 +34,46 @@ class _MyHomePageState extends State<MyHomePage> {
           title: new Text('App Name'),
           ),
         body:
-          new GridView.extent(
-            maxCrossAxisExtent: 150,
-            mainAxisSpacing: 4.0,
-            crossAxisSpacing: 4.0,
-            padding: const EdgeInsets.all(0.0),
-            children: _gridData,
+          new Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Left",
+                  style: TextStyle(
+                    fontSize: 32.0,
+                    fontWeight: FontWeight.w400,
+                    fontFamily: "Roboto"
+                  )
+                )
+              ),
+              Align(
+                alignment: Alignment.center,
+                child: Text(
+                  "Center",
+                  style: TextStyle(
+                    fontSize: 32.0,
+                    fontWeight: FontWeight.w400,
+                    fontFamily: "Roboto"
+                  ),
+                ),
+              ),
+              Align(
+                alignment: Alignment.centerRight,
+                child: Text(
+                  "Right",
+                  style: TextStyle(
+                    fontSize: 32.0,
+                    fontWeight: FontWeight.w400,
+                    fontFamily: "Roboto"
+                  ),
+                ),
+              ),
+            ]
+    
           ),
     
       );
